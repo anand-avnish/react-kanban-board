@@ -7,6 +7,7 @@ module.exports = {
       'poppins': ['Poppins', 'sans-serif'],
       'courgette':['Courgette', 'cursive'],
       'montserrat':['Montserrat', 'sans-serif'],
+      'inter':['Inter', 'sans-serif']
     },
     extend: {
     },
