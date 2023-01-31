@@ -8,7 +8,10 @@ import CreateTask from '../template/CreateTask';
 type prop ={
     status: string,
     userId:string,
-    name:string
+    name:string,
+    // onDragOver:(event: Event) => void,
+    // onDrop: (event: React.DragEvent<HTMLDivElement>, cat: string) => Promise<void>,
+    onDragStart: (event: React.DragEvent<HTMLDivElement>, taskId: string) => void
 }
 
 type task = {
@@ -60,7 +63,7 @@ const StatusBoard = (props:prop) => {
                 <button onClick={()=>handleAdd()}><RiAddBoxFill className='text-2xl'/></button>
             </div>
             {tasks?.map((task) => (
-                <div draggable>
+                <div draggable onDragStart = {(event) => props.onDragStart(event, task.id)}>
                     <Task id={task.id} data={task.data} status={props.status} key={task.id}/>
                 </div>
             ))}

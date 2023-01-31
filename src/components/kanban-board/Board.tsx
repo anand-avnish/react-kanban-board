@@ -31,7 +31,7 @@ const Board = (props:prop) => {
         console.log('dragstart on div: ', taskId);
         event.dataTransfer.setData("taskId", taskId);
 	}
-	const onDragOver = (event:Event) => {
+	const onDragOver = (event:React.DragEvent<HTMLDivElement>) => {
         event.preventDefault();
 	}
 
@@ -63,11 +63,16 @@ const Board = (props:prop) => {
             </div>
             <div className="content grow flex justify-around items-start min-w-screen p-3">
             {status.map((status) => (
-                <StatusBoard
-                    status={status}
-                    userId={props.state.userId}
-                    name={props.state.name}
-                />
+                <div onDragOver={(event)=>onDragOver(event)} onDrop={(event)=>{onDrop(event, status)}}>
+                    <StatusBoard
+                        status={status}
+                        userId={props.state.userId}
+                        name={props.state.name}
+                        // onDragOver = {onDragOver}
+                        onDragStart = {onDragStart}
+                        // onDrop = {onDrop}
+                    />
+                </div>
             ))}
             </div>
         </div>
