@@ -63,7 +63,7 @@ const Board = (props:prop) => {
             </div>
             <div className="content grow flex justify-around items-start min-w-screen p-3">
             {status.map((status) => (
-                <div onDragOver={(event)=>onDragOver(event)} onDrop={(event)=>{onDrop(event, status)}}>
+                <div className="w-64 grow" onDragOver={(event)=>onDragOver(event)} onDrop={(event)=>{onDrop(event, status)}}>
                     <StatusBoard
                         status={status}
                         userId={props.state.userId}

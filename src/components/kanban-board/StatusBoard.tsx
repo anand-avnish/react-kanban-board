@@ -57,7 +57,7 @@ const StatusBoard = (props:prop) => {
     },[props])
 
     return (
-        <div className='bg-[#EBECF0] w-64 grow mx-2 p-4 rounded-lg border border-white flex flex-col'>
+        <div className='bg-[#EBECF0] mx-2 p-4 rounded-lg border border-white flex flex-col'>
             <div className="head text-left text-lg font-bold pb-2 border-b-2 border-b-white flex justify-between">
                 {props.status}
                 <button onClick={()=>handleAdd()}><RiAddBoxFill className='text-2xl'/></button>
